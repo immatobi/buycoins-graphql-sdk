@@ -9,7 +9,7 @@ type OnchainTransferRequestStatus = "unconfirmed" | "confirmed" | "flagged" | "f
 
 export type ID = string
 
-export type Cryptocurrency = "usd_tether" | "naira_token" | "bitcoin" | "ethereum" | "litecoin" | "usd_coin"
+export type Cryptocurrency = "usd_tether" | "naira_token" | "bitcoin" | "ethereum" | "litecoin" | "usd_coin" | "bsc_naira_token"
 
 export type OrderSide = "buy" | "sell"
 

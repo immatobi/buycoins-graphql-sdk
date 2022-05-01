@@ -11,6 +11,7 @@ import Webhooks from './packages/webhooks'
 const BUYCOINS_API_URL = "https://backend.buycoins.tech/api/graphql"
 
 export class Buycoins {
+
     nairaAccount: NairaAccount
     client: GraphQLClientClass
     orders: Orders
@@ -21,14 +22,17 @@ export class Buycoins {
     webhooks: Webhooks
 
     constructor(publicKey: string, secretKey: string) {
+
         if (!publicKey || !secretKey) {
             throw new Error("missing credentials, please pass in pub/secret key")
         }
 
         const authValue = Buffer.from(publicKey + ':' + secretKey).toString('base64');
+
         this.client = new GraphQLClient(BUYCOINS_API_URL, { headers: {
             authorization: `Basic ${authValue}`
         } })
+        
         this.orders = new Orders(this.client)
         this.nairaAccount = new NairaAccount(this.client)
         this.api = new Api(this.client)
@@ -36,6 +40,7 @@ export class Buycoins {
         this.send = new Send(this.client)
         this.receive = new Receive(this.client)
         this.webhooks = new Webhooks(this.client)
+
     }
 
 }

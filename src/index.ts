@@ -2,7 +2,7 @@
 
 import { Buycoins } from './app'
 
-const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY, process.env.SECRET_KEY)
+const buycoinsClient = new Buycoins(process.env.PUBLIC_KEY || '', process.env.SECRET_KEY || '')
 
 buycoinsClient.orders.sell({
     crypto: "bitcoin",
